@@ -1,0 +1,265 @@
+@m<!DOCTYPE html>
+<html>
+<head>
+<style>
+   body {
+   margin: 0;
+   padding: 0;
+ }
+
+ .container1 {
+   display: flex;
+   width: 100vw;
+   align-items: center;
+   position: fixed;
+   z-index: 1;
+   background-color: white;
+   /* padding-left: 24px;
+   padding-right: 24px; */
+   /* margin-left: 20px; */
+   border:10px solid grey;
+ }
+
+ .logo {
+   flex-grow: 1;
+ }
+
+ .academy {
+   color: grey;
+ }
+
+ ul {
+   list-style-type: none;
+ }
+
+ ul li {
+   display: inline;
+ }
+
+ ul li a {
+   color: grey;
+ }
+ li { border-right: 16px solid cadetblue;
+     padding-right: 4px;
+     }
+
+ h1 {
+   display: inline-block;
+ }
+ button{
+   background-color:lightblue;
+   border-radius: 10px;
+   padding-bottom: 1px;
+   height: 100%;
+ }
+
+ .button {
+   display: flex;
+   text-align: center;
+   vertical-align: middle;
+   padding: 12px 24px;
+   border: 6px solid #767676;
+   border-radius: 10px;
+   background: #c1c1c1;
+   background: -webkit-gradient(linear, left top, left bottom, from(#c1c1c1), to(#767676));
+   background: -moz-linear-gradient(top, #c1c1c1, #767676);
+   background: linear-gradient(to bottom, #c1c1c1, #767676);
+   -webkit-box-shadow: #cacaca 0px 0px 40px 0px;
+   -moz-box-shadow: #cacaca 0px 0px 40px 0px;
+   box-shadow: #cacaca 0px 0px 40px 0px;
+   text-shadow: #545454 1px 1px 1px;
+   font: normal normal bold 20px arial;
+   color: #ffffff;
+   text-decoration: none;
+ }
+
+ .button:hover,
+ .button:focus {
+   border: 6px solid #a8a8a8;
+   background: #e8e8e8;
+   background: -webkit-gradient(linear, left top, left bottom, from(#e8e8e8), to(#8e8e8e));
+   background: -moz-linear-gradient(top, #e8e8e8, #8e8e8e);
+   background: linear-gradient(to bottom, #e8e8e8, #8e8e8e);
+   color: #ffffff;
+   text-decoration: none;
+ }
+
+ .button:active {
+   background: #767676;
+   background: -webkit-gradient(linear, left top, left bottom, from(#767676), to(#767676));
+   background: -moz-linear-gradient(top, #767676, #767676);
+   background: linear-gradient(to bottom, #767676, #767676);
+ }
+
+ .button:before {
+   content: "\0000a0";
+   display: inline-block;
+   height: 24px;
+   width: 24px;
+   line-height: 24px;
+   margin: 0 4px -6px -4px;
+   position: relative;
+   top: 0px;
+   left: 0px;
+   background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAEx0lEQVRIia2VfWhVdRjHP/ecc7frvXvVtbeYzusLy5fJjHxBSVkGUkynJf4ziJQCq1mJEYJJEtEfEQUGEUqiQVR/aC++FtV0c7pw0ticOt3ddvd2d7fde3ffz73nnF9/nDO9hEmDHng48OP5fV+e5+H8ZGYY9QspXlfG6ifymSNpxMdUkjPFeGQ0vVVyXIw2C6P3rAg2faR2fr61+fud2bvKHDj+F4JfGsu+E7EhISKDQkSGhIj7hBi5JHqPbbv1aS3r/1kvzZhBCFBDVgYh5gd7Ie5tH1a9cuj9306+6NyVWa7M3IMBqTDoBiBMQpMZ16JNWS806l+GIh/49l7kHIA8U/iGFWKHOz+y1KZOQnYe6BroCdCToMWxF8yVKnKiz7Zdu/PVYIyEXF1EztPlLOwOMGlKenRsmZ/e4fJ3Lo12XcbmuUD27DngKAQtDloS0jFyy+a5SoJX9G9uqL/LR7ay9+CBhh92b3hs90s1tlWbK6by1ZiI3Q4SfBjhunlsyHOwTFGwJ5MqmudPXGXlYHeCljDdCLCl/BXHzg9+Yft6O4cb3nz9EK55Jl4qSHrCYwx6vf1To4Otnr6Ri8fbROvZXjwWx2ygsqqIqlef5OXnFlFb4S6VnOv3gK5bkgTqWBeb955ersRT6AQ8ILnuC7YXzpPcs+e7qTHcNVqooW7HoDE0MnwvMuFrudkz/uvRZlqavNzYd5Fz3jDvvZvn2+dUvWBzmkPXIdthZ0ERc5WbfnpEaABbbgUI40FXJGEusSTIKiqT3MWPL0YyFq+ondq1fafPaG/vurD+cPj5z65yePNyNpYagZWgmgSGDSbbkGQU5coQt6OBcXKLgyaBTZi7lbF+5keAAUjgsAWkrMlwFeaah6W8WbeR1JXoqgke6AZ1AGRQun0M+QPhUK4aKADjAbicAc60GwMxchf/tTEiMTTAOPgMS1atLdmCMQV6GsL3QA2ABFoaQ0kYhCZDqndBsLuAnCJANl1IwsS/70RH7+3H1x5nRCV8ooOPjzZQW19XeDy/ODsHtRcS45gDgLgfhsNMKIAWiOMhOVqN4QOnCxxOsNlBsmUsqI4oBmeNgjEmAgfXyO+459sXy0oaUnfN9trNFpKCgT5CV4fwKABjUbpRqEcRQBT0KGiAJJkp28AGSh4UFsLqpVQi0iBSpstsU/h0Jm5Ch5/LkaTpgA4fHQKwKdbYFEw1imGldSZbabMSzMEbFrgBWieMDKOd7OAIYCgAl/roSajgzLMA7KZNBJCTcSZbRJn/YGERqJBuBb8HzvRz8vwtLmOV0zXKkD9CqLKUAuwgpiDQbra1sBLk5UBJBomU4UAF0QfRFggmodlP076fOWBJNAlSOqHxMN5KOwViFMa7YVgQlUGJ9uNweSCnHLKrQCoFHCA00Ccg3gNTXkgJjDP9nNr/E28bBv5pg9PvgTY1yT29i2r/OPRp+PZfYE8gRvyNdTSuLWdjSYAcpQ2UWSBbm4wG0TTGjQDdx65z5Ewn3wLhjAY+eHCGE3SNhdj+V5yu106ze2CS64DReIqWHAdL6paxafVcnipyUZyloERUQnfG6fmxkz/u+GgFJqxpPDzqqlnzST0nnFm4/7UIHNbY8wAnM3wRJSBrJhf+S/wNbS430494JFMAAAAASUVORK5CYII=") no-repeat left center transparent;
+   background-size: 100% 100%;
+ }
+
+ .cta-button {
+   display: flex;
+ }
+
+ .left {
+   width: 60%;
+ }
+
+ .flex {
+   display: flex;
+ }
+
+ .banner {
+   padding-top: 120px;
+   border: 1px solid blue;
+ }
+
+ .right {
+   width: 40%;
+ }
+
+@media only screen
+   and (min-width : 320px) {
+ header{
+   background-image:url("")
+ }
+}
+</style>
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css">
+</head>
+<body>
+
+
+  <header>
+    <div class="container1">
+      <div class="logo">
+        <img width="35px" height="40px" src="https://photos-4.dropbox.com/t/2/AADT8WGdJjxavJwBYW9R1fjEUCO3wKIT4xUvREqlzFnUkw/12/113135192/png/32x32/1/_/1/2/ic-logo.svg/EJu2rVcYwUEgAigC/oieHBj1NbjLfiNDmEo9c4Hr177qfNSagq4_e22ZnsAk?size=1280x960&size_mode=3" />
+        <h1>COLMAR<span class="academy">ACADEMY</span></h1>
+      </div>
+      <!-- close logo -->
+      <!-- navigation -->
+      <ul>
+        <li><a href="#oncampus">On Campus</a></li>
+        <li><a href="#online">Online</a></li>
+        <li><a href="#companies">For Companies</a></li>
+        <li><a href="#signin">Sign In</a></li>
+      </ul>
+    </div>
+    <!-- close container1 -->
+  </header>
+
+  <div class="flex banner">
+    <div class="left">
+      <img src="https://photos-5.dropbox.com/t/2/AADY2Cb4tqQJRRySXx9YRuovEbG0cMZdO3k5E_n18fzQkg/12/113135192/jpeg/32x32/1/_/1/2/banner.jpg/EJu2rVcYwUEgAigC/kOzXSx7BvZ_zfT-yDwuHVrxN1OPUkvKOWcPy0w48Rg8?size=1280x960&size_mode=3">
+
+    </div>
+    <div class="right1">
+      <p>Learn something new every day</p>
+      <a class="button" href="#">Start here</a>
+    </div>
+  </div>
+
+  <div class="flex">
+    <div class="left">
+      <img width="80%" src="http://www.mediafire.com/convkey/0f8a/2qf3vxc6wjzwb84zg.jpg">
+      <h1>It doesn't hurt to keep practicing</h1>
+      <p>"Cirabitur vitae libero in ipsum porttitor consequat. Aliquam et commodo lectus, nec consequat neque. Sed non accumsan urna. Phasellus sed consequat ex. Etiam eget magna laoreet, efficitur dolor consequat tristique ligula"</p>
+    </div>
+    <div class="right">
+
+
+      <img src="http://www.mediafire.com/convkey/1994/m07fc3hjo8m772yzg.jpg">
+      <h3>Orientation date</h3>
+      <p>Tue 10/11 &amp Wed 10/12: 8am-3pm
+        <p>
+          <button>Read more</button>
+          <img src="http://www.mediafire.com/convkey/8941/hqwum5uirn1f44kzg.jpg">
+          <h3>Our campus</h3>
+          <p>Find out which campus is close to you
+            <p>
+              <button>Read more</button>
+              <img src="http://www.mediafire.com/convkey/d5e3/sflyr6kvwromwu0zg.jpg">
+              <h3>Our guest lectures</h3>
+              <p>Join a keynote with Oliver Sack about music in medical treatment
+                <p>
+                  <button>Read more</button>
+    </div>
+
+  </div>
+
+
+
+  <div id="container">
+    <div id="row">
+
+      <div class="col-md-4" id="left">
+        <img src="http://www.mediafire.com/convkey/4a91/4ov484j19r4zg52zg.jpg">
+        <h2>Software engineering</h2>
+        <h3>Courses</h3>
+        <p>Web Development, Mobile Development, iOT, APIs</p>
+      </div>
+
+      <div class="col-md-4"  id="middle">
+        <img src="http://www.mediafire.com/convkey/111e/hkann93hbr16rgyzg.jpg">
+        <h2>Computer Art</h2>
+        <h3>Courses</h3>
+        <p>Imaging & Design, Web Design, Motion Graphics & Vissial Effects. Computer Animation</p>
+      </div>
+
+      <div class="col-md-4" id="right">
+        <img src="http://www.mediafire.com/convkey/6f87/zeaz86u31asvcruzg.jpg">
+        <h2>Design</h2>
+        <h3>Courses</h3>
+        <p>User Experience Design. User Research, Visual Design</p>
+      </div>
+    </div>
+
+    <div id="row">
+
+      <div class="col-md-4"  id="left">
+        <img src="http://www.mediafire.com/convkey/d896/5k8wb46jd48mnu1zg.jpg">
+        <h2>Data</h2>
+        <h3>Courses</h3>
+        <p>Data Science, Big Data, SQL, Data, Visualization</p>
+      </div>
+
+      <div class="col-md-4"  id="middle">
+        <img src="http://www.mediafire.com/convkey/800c/rp26i8rha3yy25kzg.jpg">
+        <h2>Business</h2>
+        <h3>Courses</h3>
+        <p>Product Development, Business Development, Startup</p>
+      </div>
+
+      <div class="col-md-4"  id="right">
+        <img src="http://www.mediafire.com/convkey/6f87/zeaz86u31asvcruzg.jpg">
+        <h2>Marketing</h2>
+        <h3>Courses</h3>
+        <p>Analytics, Content Marketing, Mobile Marketing</p>
+      </div>
+    </div>
+  </div>
+  <div>
+    <p>This web page is a part of a demonstration of fluid web design made by www.w3schools.com. Resize the browser window to see the content response to the resizing.</p>
+
+    <iframe width="420" height="315" src="https://player.vimeo.com/video/222076238" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<p><a href="https://vimeo.com/222076238">Video</a> from <a href="https://vimeo.com/user67864148">Ferdi</a> on <a href="https://vimeo.com">This link.</a></p>
+    </iframe>
+  </div>
+  <!-- Social Media Icons -->
+  <div class="social">
+
+   <span><p>Share your results with friends</p>
+    <i class="fa fa-facebook"></i>
+    <i class="fa fa-twitter"></i>
+    <i class="fa fa-pinterest"></i>
+  </div>
+</body>
+</html>
